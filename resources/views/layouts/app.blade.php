@@ -254,6 +254,7 @@ $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
                                 <button class="w3view-cart" type="submit" name="submit" ><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
                             </form>  
                         </div>
+                      
                         <div class="clearfix"> </div> 
                     </div> 
                     <div class="clearfix"> </div>

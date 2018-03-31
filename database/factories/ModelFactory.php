@@ -34,7 +34,7 @@ $factory->define(\App\Book::class, function (Faker\Generator $faker) {
       'user_id' => $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]),
       'one_subtype_id' => $faker->numberBetween(1, 122),
       'two_subtype_id' => $faker->numberBetween(1, 122),
-      'tree_subtype_id' => $faker->numberBetween(1, 122),
-      'force_subtype_id' => $faker->numberBetween(1, 122),
+      'type_id' => $faker->numberBetween(1, 10),
+      'status' => $faker->numberBetween(1, 5),
     ];
 });

@@ -14,6 +14,10 @@ class CreateFacturesTable extends Migration {
     public function up() {
         Schema::create('factures', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('total_pay')->nullable();
+            $table->integer('status')->default(0);
+            $table->integer('user_id')->unsigned(); //Comprador
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

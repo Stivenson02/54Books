@@ -23,14 +23,13 @@ class CreateBooksTable extends Migration {
             $table->string('code');
             $table->integer('user_id')->unsigned()->nullable(); //Publicante
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('one_subtype_id')->unsigned();
+            $table->integer('one_subtype_id')->unsigned()->nullable();
             $table->foreign('one_subtype_id')->references('id')->on('subtypes');
             $table->integer('two_subtype_id')->unsigned()->nullable();
             $table->foreign('two_subtype_id')->references('id')->on('subtypes');
-            $table->integer('tree_subtype_id')->unsigned()->nullable();
-            $table->foreign('tree_subtype_id')->references('id')->on('subtypes');
-            $table->integer('force_subtype_id')->unsigned()->nullable();
-            $table->foreign('force_subtype_id')->references('id')->on('subtypes');
+            $table->integer('type_id')->unsigned()->nullable();
+            $table->foreign('type_id')->references('id')->on('types');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

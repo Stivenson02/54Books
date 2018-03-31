@@ -44,14 +44,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script src="{{ asset('js/owl.carousel.js')}}"></script>  
         <script>
 $(document).ready(function () {
-$("#owl-demo").owlCarousel({
-autoPlay: 3000, //Set AutoPlay to 3 seconds 
-  items: 4,
-  itemsDesktop: [640, 5],
-  itemsDesktopSmall: [480, 2],
-  navigation: true
+    $("#owl-demo").owlCarousel({
+        autoPlay: 3000, //Set AutoPlay to 3 seconds 
+        items: 4,
+        itemsDesktop: [640, 5],
+        itemsDesktopSmall: [480, 2],
+        navigation: true
 
-});
+    });
 });
         </script>
         <script src="{{ asset('js/jquery-scrolltofixed-min.js')}}" type="text/javascript"></script>
@@ -60,18 +60,18 @@ $(document).ready(function () {
 
 // Dock the header to the top of the window when scrolled past the banner. This is the default behaviour.
 
-$('.header-two').scrollToFixed();
+    $('.header-two').scrollToFixed();
 // previous summary up the page.
 
-var summaries = $('.summary');
-summaries.each(function (i) {
-var summary = $(summaries[i]);
-var next = summaries[i + 1];
-summary.scrollToFixed({
-marginTop: $('.header-two').outerHeight(true) + 10,
-  zIndex: 999
-});
-});
+    var summaries = $('.summary');
+    summaries.each(function (i) {
+        var summary = $(summaries[i]);
+        var next = summaries[i + 1];
+        summary.scrollToFixed({
+            marginTop: $('.header-two').outerHeight(true) + 10,
+            zIndex: 999
+        });
+    });
 });
         </script>
         <!-- start-smooth-scrolling -->
@@ -79,10 +79,10 @@ marginTop: $('.header-two').outerHeight(true) + 10,
         <script type="text/javascript" src="{{ asset('js/easing.js')}}"></script>	
         <script type="text/javascript">
 jQuery(document).ready(function ($) {
-$(".scroll").click(function (event) {
-event.preventDefault();
-$('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
-});
+    $(".scroll").click(function (event) {
+        event.preventDefault();
+        $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+    });
 });
         </script>
         <!-- //end-smooth-scrolling -->
@@ -90,13 +90,13 @@ $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
         <script type="text/javascript">
             $(document).ready(function () {
 
-            var defaults = {
-            containerID: 'toTop', // fading element id
-              containerHoverID: 'toTopHover', // fading element hover id
-              scrollSpeed: 1200,
-              easingType: 'linear'
-            };
-            $().UItoTop({easingType: 'easeOutQuart'});
+                var defaults = {
+                    containerID: 'toTop', // fading element id
+                    containerHoverID: 'toTopHover', // fading element hover id
+                    scrollSpeed: 1200,
+                    easingType: 'linear'
+                };
+                $().UItoTop({easingType: 'easeOutQuart'});
             });
         </script>
         <!-- //smooth-scrolling-of-move-up -->
@@ -181,7 +181,7 @@ $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
                             <ul class="dropdown-menu">
                                 <li>    <a href="{{ url('/logout') }}"
                                            onclick="event.preventDefault();
-                                               document.getElementById('logout-form').submit();">
+                                                   document.getElementById('logout-form').submit();">
                                         Salir
                                     </a>
 
@@ -224,7 +224,7 @@ $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
             </div>
             @endif
             <div class="header-two"><!-- header-two -->
-               	 <div class="container">
+                <div class="container">
                     <div class="header-logo">
                         <h1><a href="{{url('/')}}"><span>S</span>mart <i>Bazaar</i></a></h1>
                         <h6>Your stores. Your place.</h6> 
@@ -240,7 +240,7 @@ $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
                     <div class="header-cart"> 
                         <div class="my-account">
                             @if (Auth::guest())
-                            <a href="contact.html"><i class="fa fa-map-marker" aria-hidden="true"></i> Registro y Loging</a>	
+                            <a href="{{url('register')}}"><i class="fa fa-user" aria-hidden="true"></i> Registro</a>	
                             @else
                             @unless (auth()->guest())
                             <a href="contact.html"><i class="fa fa-map-marker" aria-hidden="true"></i> {{ Auth::user()->name }}</a>	
@@ -248,13 +248,14 @@ $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
                             @endif
                         </div>
                         <div class="cart"> 
-                            <form action="#" method="post" class="last"> 
-                                <input type="hidden" name="cmd" value="_cart" />
-                                <input type="hidden" name="display" value="1" />
-                                <button class="w3view-cart" type="submit" name="submit" ><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-                            </form>  
+                            @if (!Auth::guest())
+                            <a href="{{route('show_car_phat')}}">
+                                <button class="w3view-cart" type="submit"  ><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                            </a>
+                            @endif
+
                         </div>
-                      
+
                         <div class="clearfix"> </div> 
                     </div> 
                     <div class="clearfix"> </div>
@@ -326,14 +327,14 @@ $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
         <script>
                                                w3ls.render();
                                                w3ls.cart.on('w3sb_checkout', function (evt) {
-                                               var items, len, i;
-                                               if (this.subtotal() > 0) {
-                                               items = this.items();
-                                               for (i = 0, len = items.length; i < len; i++) {
-                                               items[i].set('shipping', 0);
-                                               items[i].set('shipping2', 0);
-                                               }
-                                               }
+                                                   var items, len, i;
+                                                   if (this.subtotal() > 0) {
+                                                       items = this.items();
+                                                       for (i = 0, len = items.length; i < len; i++) {
+                                                           items[i].set('shipping', 0);
+                                                           items[i].set('shipping2', 0);
+                                                       }
+                                                   }
                                                });
         </script>  
         <!-- //cart-js -->	
@@ -342,56 +343,56 @@ $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
         <script src="{{ asset('js/jquery.throttle.js')}}"></script>
         <script src="{{ asset('js/jquery.classycountdown.js')}}"></script>
         <script>
-                                                 $(document).ready(function () {
-                                               $('#countdown1').ClassyCountdown({
-                                               end: '1388268325',
-                                                 now: '1387999995',
-                                                 labels: true,
-                                                 style: {
-                                                 element: "",
-                                                   textResponsive: .5,
-                                                   days: {
-                                                   gauge: {
-                                                   thickness: .10,
-                                                     bgColor: "rgba(0,0,0,0)",
-                                                     fgColor: "#1abc9c",
-                                                     lineCap: 'round'
-                                                   },
-                                                     textCSS: 'font-weight:300; color:#fff;'
-                                                   },
-                                                   hours: {
-                                                   gauge: {
-                                                   thickness: .10,
-                                                     bgColor: "rgba(0,0,0,0)",
-                                                     fgColor: "#05BEF6",
-                                                     lineCap: 'round'
-                                                   },
-                                                     textCSS: ' font-weight:300; color:#fff;'
-                                                   },
-                                                   minutes: {
-                                                   gauge: {
-                                                   thickness: .10,
-                                                     bgColor: "rgba(0,0,0,0)",
-                                                     fgColor: "#8e44ad",
-                                                     lineCap: 'round'
-                                                   },
-                                                     textCSS: ' font-weight:300; color:#fff;'
-                                                   },
-                                                   seconds: {
-                                                   gauge: {
-                                                   thickness: .10,
-                                                     bgColor: "rgba(0,0,0,0)",
-                                                     fgColor: "#f39c12",
-                                                     lineCap: 'round'
-                                                   },
-                                                     textCSS: ' font-weight:300; color:#fff;'
-                                                   }
+                                               $(document).ready(function () {
+                                                   $('#countdown1').ClassyCountdown({
+                                                       end: '1388268325',
+                                                       now: '1387999995',
+                                                       labels: true,
+                                                       style: {
+                                                           element: "",
+                                                           textResponsive: .5,
+                                                           days: {
+                                                               gauge: {
+                                                                   thickness: .10,
+                                                                   bgColor: "rgba(0,0,0,0)",
+                                                                   fgColor: "#1abc9c",
+                                                                   lineCap: 'round'
+                                                               },
+                                                               textCSS: 'font-weight:300; color:#fff;'
+                                                           },
+                                                           hours: {
+                                                               gauge: {
+                                                                   thickness: .10,
+                                                                   bgColor: "rgba(0,0,0,0)",
+                                                                   fgColor: "#05BEF6",
+                                                                   lineCap: 'round'
+                                                               },
+                                                               textCSS: ' font-weight:300; color:#fff;'
+                                                           },
+                                                           minutes: {
+                                                               gauge: {
+                                                                   thickness: .10,
+                                                                   bgColor: "rgba(0,0,0,0)",
+                                                                   fgColor: "#8e44ad",
+                                                                   lineCap: 'round'
+                                                               },
+                                                               textCSS: ' font-weight:300; color:#fff;'
+                                                           },
+                                                           seconds: {
+                                                               gauge: {
+                                                                   thickness: .10,
+                                                                   bgColor: "rgba(0,0,0,0)",
+                                                                   fgColor: "#f39c12",
+                                                                   lineCap: 'round'
+                                                               },
+                                                               textCSS: ' font-weight:300; color:#fff;'
+                                                           }
 
-                                                 },
-                                                 onEndCallback: function () {
-                                                 console.log("Time out!");
-                                                 }
-                                               });
+                                                       },
+                                                       onEndCallback: function () {
+                                                           console.log("Time out!");
+                                                       }
+                                                   });
                                                });
         </script>
         <!-- //countdown.js -->

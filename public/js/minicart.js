@@ -2036,7 +2036,7 @@
 <input type="hidden" name="cmd" value="_cart" />    \n\
 <input type="hidden" name="upload" value="1" />    \n\
 <% for (var key in settings) { %>        \n\
-<input type="submit" name="<%= key %>" value="<%= settings[key] %>" />    <% } %>\n\
+<input type="hidden" name="<%= key %>" value="<%= settings[key] %>" />    <% } %>\n\
 </form>',
 
                 styles: '',

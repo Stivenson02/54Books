@@ -110,7 +110,7 @@ jQuery(document).ready(function ($) {
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-map-marker" aria-hidden="true"></i> Bienvenido</h4>
+                        <h4 class="modal-title" id="myModalLabel"><i class="fa fa-bookmark-o" aria-hidden="true"></i> Bienvenido</h4>
                     </div>
                     <div class="modal-body modal-body-sub"> 
                         <h5>Incie sesion / O <a href="{{url('register')}}" >Registrate</a> </h5>   
@@ -176,47 +176,19 @@ jQuery(document).ready(function ($) {
                 </div>
                 <div class="w3ls-header-right">
                     <ul>
-                        <li class="dropdown head-dpdn">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> My Account<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li>    <a href="{{ url('/logout') }}"
-                                           onclick="event.preventDefault();
-                                                   document.getElementById('logout-form').submit();">
-                                        Salir
-                                    </a>
 
-                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form></li> 
-                                <li><a href="signup.html">Sign Up</a></li> 
-                                <li><a href="login.html">My Orders</a></li>  
-                                <li><a href="login.html">Wallet</a></li> 
-                            </ul> 
-                        </li> 
-                        <li class="dropdown head-dpdn">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i> Today's Deals<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="offers.html">Cash Back Offers</a></li> 
-                                <li><a href="offers.html">Product Discounts</a></li>
-                                <li><a href="offers.html">Special Offers</a></li> 
-                            </ul> 
-                        </li> 
-                        <li class="dropdown head-dpdn">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gift" aria-hidden="true"></i> Gift Cards<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="offers.html">Product Gift card</a></li> 
-                                <li><a href="offers.html">Occasions Register</a></li>
-                                <li><a href="offers.html">View Balance</a></li> 
-                            </ul> 
-                        </li> 
-                        <li class="dropdown head-dpdn">
-                            <a href="contact.html" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> Store Finder</a>
-                        </li> 
-                        <li class="dropdown head-dpdn">
-                            <a href="card.html" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Credit Card</a>
-                        </li> 
-                        <li class="dropdown head-dpdn">
-                            <a href="help.html" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
+                        <li class="dropdown head-dpdn" >
+
+                            <a style="color: #FFF"  href="{{ url('/logout') }}"
+                               onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                <i class="fa fa-power-off" aria-hidden="true"></i> Salir
+                            </a>
+
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+
                         </li>
                     </ul>
                 </div>
@@ -243,7 +215,7 @@ jQuery(document).ready(function ($) {
                             <a href="{{url('register')}}"><i class="fa fa-user" aria-hidden="true"></i> Registro</a>	
                             @else
                             @unless (auth()->guest())
-                            <a href="contact.html"><i class="fa fa-map-marker" aria-hidden="true"></i> {{ Auth::user()->name }}</a>	
+                            <a href="{{route('my_perfil_phat') }} "><i style="color: #0280e1" class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }}</a>	
                             @endunless 
                             @endif
                         </div>
@@ -325,17 +297,17 @@ jQuery(document).ready(function ($) {
         <!-- cart-js -->
         <script src="{{ asset('js/minicart.js')}}"></script>
         <script>
-                                               w3ls.render();
-                                               w3ls.cart.on('w3sb_checkout', function (evt) {
-                                                   var items, len, i;
-                                                   if (this.subtotal() > 0) {
-                                                       items = this.items();
-                                                       for (i = 0, len = items.length; i < len; i++) {
-                                                           items[i].set('shipping', 0);
-                                                           items[i].set('shipping2', 0);
-                                                       }
-                                                   }
-                                               });
+                                                w3ls.render();
+                                                w3ls.cart.on('w3sb_checkout', function (evt) {
+                                                    var items, len, i;
+                                                    if (this.subtotal() > 0) {
+                                                        items = this.items();
+                                                        for (i = 0, len = items.length; i < len; i++) {
+                                                            items[i].set('shipping', 0);
+                                                            items[i].set('shipping2', 0);
+                                                        }
+                                                    }
+                                                });
         </script>  
         <!-- //cart-js -->	
         <!-- countdown.js -->	
@@ -343,57 +315,57 @@ jQuery(document).ready(function ($) {
         <script src="{{ asset('js/jquery.throttle.js')}}"></script>
         <script src="{{ asset('js/jquery.classycountdown.js')}}"></script>
         <script>
-                                               $(document).ready(function () {
-                                                   $('#countdown1').ClassyCountdown({
-                                                       end: '1388268325',
-                                                       now: '1387999995',
-                                                       labels: true,
-                                                       style: {
-                                                           element: "",
-                                                           textResponsive: .5,
-                                                           days: {
-                                                               gauge: {
-                                                                   thickness: .10,
-                                                                   bgColor: "rgba(0,0,0,0)",
-                                                                   fgColor: "#1abc9c",
-                                                                   lineCap: 'round'
-                                                               },
-                                                               textCSS: 'font-weight:300; color:#fff;'
-                                                           },
-                                                           hours: {
-                                                               gauge: {
-                                                                   thickness: .10,
-                                                                   bgColor: "rgba(0,0,0,0)",
-                                                                   fgColor: "#05BEF6",
-                                                                   lineCap: 'round'
-                                                               },
-                                                               textCSS: ' font-weight:300; color:#fff;'
-                                                           },
-                                                           minutes: {
-                                                               gauge: {
-                                                                   thickness: .10,
-                                                                   bgColor: "rgba(0,0,0,0)",
-                                                                   fgColor: "#8e44ad",
-                                                                   lineCap: 'round'
-                                                               },
-                                                               textCSS: ' font-weight:300; color:#fff;'
-                                                           },
-                                                           seconds: {
-                                                               gauge: {
-                                                                   thickness: .10,
-                                                                   bgColor: "rgba(0,0,0,0)",
-                                                                   fgColor: "#f39c12",
-                                                                   lineCap: 'round'
-                                                               },
-                                                               textCSS: ' font-weight:300; color:#fff;'
-                                                           }
+                                                $(document).ready(function () {
+                                                    $('#countdown1').ClassyCountdown({
+                                                        end: '1388268325',
+                                                        now: '1387999995',
+                                                        labels: true,
+                                                        style: {
+                                                            element: "",
+                                                            textResponsive: .5,
+                                                            days: {
+                                                                gauge: {
+                                                                    thickness: .10,
+                                                                    bgColor: "rgba(0,0,0,0)",
+                                                                    fgColor: "#1abc9c",
+                                                                    lineCap: 'round'
+                                                                },
+                                                                textCSS: 'font-weight:300; color:#fff;'
+                                                            },
+                                                            hours: {
+                                                                gauge: {
+                                                                    thickness: .10,
+                                                                    bgColor: "rgba(0,0,0,0)",
+                                                                    fgColor: "#05BEF6",
+                                                                    lineCap: 'round'
+                                                                },
+                                                                textCSS: ' font-weight:300; color:#fff;'
+                                                            },
+                                                            minutes: {
+                                                                gauge: {
+                                                                    thickness: .10,
+                                                                    bgColor: "rgba(0,0,0,0)",
+                                                                    fgColor: "#8e44ad",
+                                                                    lineCap: 'round'
+                                                                },
+                                                                textCSS: ' font-weight:300; color:#fff;'
+                                                            },
+                                                            seconds: {
+                                                                gauge: {
+                                                                    thickness: .10,
+                                                                    bgColor: "rgba(0,0,0,0)",
+                                                                    fgColor: "#f39c12",
+                                                                    lineCap: 'round'
+                                                                },
+                                                                textCSS: ' font-weight:300; color:#fff;'
+                                                            }
 
-                                                       },
-                                                       onEndCallback: function () {
-                                                           console.log("Time out!");
-                                                       }
-                                                   });
-                                               });
+                                                        },
+                                                        onEndCallback: function () {
+                                                            console.log("Time out!");
+                                                        }
+                                                    });
+                                                });
         </script>
         <!-- //countdown.js -->
         <!-- menu js aim -->

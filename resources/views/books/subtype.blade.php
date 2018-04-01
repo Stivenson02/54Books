@@ -57,14 +57,7 @@
 
                 <div class="clearfix"> </div>
             </div>
-            <!-- add-products --> 
-            <div class="w3ls-add-grids w3agile-add-products">
-                <a href="#"> 
-                    <h4>TOP 10 TRENDS FOR YOU FLAT <span>30%</span> OFF</h4>
-                    <h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-                </a>
-            </div> 
-            <!-- //add-products -->
+        
         </div>
         <div class="col-md-3 rsidebar">
             <div class="rsidebar-top">

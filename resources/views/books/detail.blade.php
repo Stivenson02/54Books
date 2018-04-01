@@ -164,8 +164,6 @@
                 @endforeach
 
                 <!-- //recommendations --> 
-
-
             </div>
         </div>
         <!--//products-->  

@@ -14,16 +14,16 @@
             <div class="clearfix"> </div>
             <!-- //breadcrumbs -->
             <div class="product-top">
-                <h4>Pago de libros</h4>
+                <h4>Perfil de usuario</h4>
 
                 <div class="clearfix"> </div>
             </div>
             <div class="products-row">
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('simulate_book_payu_phat')}}">
+                    <form class="form-horizontal" method="POST" action="{{ route('simulate_plan_payu_phat')}}">
                         {{ csrf_field() }}          
-                        <input   type="hidden" name="facture" class="form-control" value="{{ $facture->id }}" readonly>
+                        <input   type="hidden" name="plan" class="form-control" value="{{ $plan->id }}" readonly>
                         <input   type="hidden" name="user" class="form-control" value="{{ $user->id }}" readonly>
 
                         <div class="form-group">
@@ -38,14 +38,24 @@
                                 <input  type="text" class="form-control" value="{{ $user->email }}"  readonly>
                             </div>
                         </div>
-                   
                         <div class="form-group">
-                            <label  class="col-md-4 control-label">Total Pagar</label>
+                            <label  class="col-md-4 control-label">Nombre Plan</label>
                             <div class="col-md-6">
-                                <input  type="text" name="coste" class="form-control" value="{{ number_format($facture->total_pay) }}" readonly>
+                                <input  type="text" name="name" class="form-control" value="{{ $plan->name }}" readonly>
                             </div>
                         </div>
-                    
+                        <div class="form-group">
+                            <label  class="col-md-4 control-label">Costo</label>
+                            <div class="col-md-6">
+                                <input  type="text" name="coste" class="form-control" value="{{ number_format($plan->coste) }}" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-md-4 control-label">Nivel de publicacion</label>
+                            <div class="col-md-6">
+                                <input  type="text" name="status" class="form-control" value="{{ number_format($plan->status) }}" readonly>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

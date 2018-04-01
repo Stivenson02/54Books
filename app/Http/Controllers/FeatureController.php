@@ -125,7 +125,21 @@ class FeatureController extends Controller {
         $updateSend->city_id = $date->city;
         $updateSend->save();
         $facture = Facture::find($date->feature);
-        return view('feature.payu', ['send' => $updateSend, 'facture' => $facture]);
+        $user = User::find(Auth::User()->id);
+        return view('feature.payu', ['send' => $updateSend, 'facture' => $facture, 'user' => $user]);
+    }
+
+    public function SimulatePayBook(Request $date) {
+        $facture = Facture::find($date->facture);
+        $books = CarUser::where('facture_id', $facture->id)->get();
+        foreach ($books as $value) {
+            $car = CarUser::find($value->id);
+            $car->status = 2;
+            $car->save();
+        }
+        $facture->status = 2;
+        $facture->save();
+        return redirect()->route('book_feature_phat');
     }
 
 }

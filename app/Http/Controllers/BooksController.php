@@ -14,7 +14,7 @@ class BooksController extends Controller {
     public function Subtype($id) {
         $type = Type::find($id);
         $books = Book::where('type_id', $type->id)->orderBy('status', 'desc')->get();
-        $relationBooks = Book::where('type_id', $id)->where('status', '>', 2)->inRandomOrder()->limit(10)->get();
+        $relationBooks = Book::where('type_id', $id)->where('status', '>', 2)->inRandomOrder()->limit(20)->get();
 
         return view('books.subtype', ['type' => $type, 'subtype' => $type->subtipe, 'books' => $books, "relationBook" => $relationBooks]);
     }
@@ -23,10 +23,10 @@ class BooksController extends Controller {
         $book = Book::find($id_book);
         if ($book) {
             $type_one = Subtype::find($book->one_subtype_id);
-            $relationBooks = Book::where('status', '>', 2)
+            $relationBooks = Book::where('status', '>', 1)
                 ->where('one_subtype_id', $book->one_subtype_id)
                 ->orWhere('two_subtype_id', $book->one_subtype_id)
-                ->inRandomOrder()->limit(10)->get();
+                ->inRandomOrder()->limit(20)->get();
 
             return view('books.detail', ['book' => $book, 'typeOne' => $type_one, "relationBook" => $relationBooks]);
         } else {
@@ -38,7 +38,7 @@ class BooksController extends Controller {
 
         $type = Type::find($date->type);
         $books = Book::orderBy('status', 'desc')->get();
-        $relationBooks = Book::where('type_id', $date->type)->where('status', '>', 2)->inRandomOrder()->limit(10)->get();
+        $relationBooks = Book::where('type_id', $date->type)->where('status', '>', 1)->inRandomOrder()->limit(20)->get();
 
         return view('books.filtersubtype', ['type' => $type, 'subtype' => $type->subtipe, 'books' => $books, "relationBook" => $relationBooks, "filter" => $date['skills']]);
     }

@@ -10,6 +10,7 @@ use App\City;
 use App\Plans;
 use App\Pay;
 use App\CarUser;
+use App\UserBook;
 
 class UserController extends Controller {
 
@@ -52,7 +53,12 @@ class UserController extends Controller {
 
     //Plans
     public function showfree() {
-        return view('user.planfree');
+        $validate = Pay::where('user_id', Auth::User()->id);
+        if ($validate->exists()) {
+            return redirect()->route('plan_day_phat');
+        } else {
+            return view('user.planfree');
+        }
     }
 
     public function showplan() {
@@ -68,6 +74,27 @@ class UserController extends Controller {
     public function plans() {
         $plans = Plans::orderBy('id', 'ASC')->get();
         return view('user.plans', ['plans' => $plans]);
+    }
+
+    public function pruebaYA() {
+        $validate = Pay::where('user_id', Auth::User()->id);
+        if ($validate->exists()) {
+            return redirect()->route('plan_day_phat');
+        } else {
+            $ac = '+30 day';
+            $fecha = date('Y-m-j');
+            $nuevafecha = strtotime($ac, strtotime($fecha));
+            $nuevafecha = date('Y-m-j', $nuevafecha);
+            $userplan = new Pay();
+
+            $userplan->plan_id = 1;
+            $userplan->user_id = Auth::User()->id;
+            $userplan->end_date = $nuevafecha;
+
+            if ($userplan->save()) {
+                return redirect()->route('view_public_phat');
+            }
+        }
     }
 
     public function payPlan($id) {
@@ -108,6 +135,31 @@ class UserController extends Controller {
         $car = CarUser::where('user_id', Auth::User()->id)->where('status', 2)->get();
 
         return view('user.bookfeature', ['books' => $car]);
+    }
+
+    public function publisBook() {
+        $public = UserBook::where('user_id', Auth::User()->id);
+        $plan = Pay::where('user_id', Auth::User()->id);
+        if ($public->exists()) {
+            if ($plan->exists()) {
+                $actual = $plan->first();
+                $book = $public->count();
+                if ($actual->plan->nbook == $book) {
+                    return redirect()->route('plan_day_phat');
+                }
+            } else {
+                return redirect()->route('plan_day_phat');
+            }
+        } else {
+            if ($plan->exists()) {
+                $actual = $plan->first();
+                $book = 0;
+            } else {
+                return redirect()->route('plan_day_phat');
+            }
+        }
+
+        return view('user.bookpublic', ['plan' => $actual, 'public' => $book]);
     }
 
 }

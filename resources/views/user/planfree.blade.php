@@ -25,7 +25,6 @@
                             <li><a href="">Ilimitado</a></li>
                         </ul> 
                     </div>
-
                     <p class="single-price-text">
                         Plan Hilo se describe como el acceso gratuito a BooksPay y te da derecho a:
                     </p>
@@ -38,13 +37,9 @@
                     <a href="{{route('plans_phat')}}">
                         <button type="submit" class="w3ls-cart w3ls-cart-like"><i class="fa fa-bookmark-o" aria-hidden="true"></i> Mejora tu plan</button>
                     </a>
-                    <script>
-                        function login() {
-                            $('#myModal88').modal('show');
-                        }
-                    </script>
-
-
+                     <a href="{{route('prueba_ya_phat')}}">
+                        <button type="submit" class="w3ls-cart w3ls-cart-like"><i class="fa fa-bookmark-o" aria-hidden="true"></i> Prueba Gratis</button>
+                    </a>
                 </div>
 
                 <div class="clearfix"> </div>

@@ -18,9 +18,9 @@
                     </ul>
                 </li>
                 <li class="item3"><a href="#">Libros<span class="glyphicon glyphicon-menu-down"></span></a>
-                    <ul>
-                        <li class="subitem1"><a href="#">Publicaciones</a></li>										
-                        <li class="subitem1"><a href="#">Compras</a></li>										
+                    <ul>				
+                        <li class="subitem1"><a href="{{route('book_feature_phat') }}">Compras</a></li>	
+                        <li class="subitem1"><a href="{{route('book_publis_phat')}}">Publicaciones</a></li>	
                     </ul>
                 </li>
             </ul>

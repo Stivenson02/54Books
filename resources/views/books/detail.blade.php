@@ -35,20 +35,13 @@
                     </div>
                     <div class="single-price">
                         <ul>
-                            @if($book->status == 3)
-                            <li>$ {{number_format ($book->coste - ($book->coste * 10) /100)}}</li>  
-                            <li><del>{{number_format ($book->coste)}}</del></li> 
-                            <li><span class="w3off">10% OFF</span></li> 
-                            @elseif($book->status == 4)
-                            <li>$ {{number_format ($book->coste - ($book->coste * 20) /100)}}</li>  
-                            <li><del>{{number_format ($book->coste)}}</del></li> 
-                            <li><span class="w3off">20% OFF</span></li> 
-                            @elseif($book->status == 5)
-                            <li>$ {{number_format ($book->coste - ($book->coste * 30) /100)}}</li>  
-                            <li><del>{{number_format ($book->coste)}}</del></li> 
-                            <li><span class="w3off">30% OFF</span></li> 
-                            @else
+                            @if($book->descuento == 0 )
                             <li>$ {{number_format ($book->coste)}}</li>  
+                            @else
+                            <li>$ {{number_format ($book->coste - ($book->coste * $book->descuento) /100)}}</li>  
+                            <li><del>{{number_format ($book->coste)}}</del></li> 
+                            <li><span class="w3off">$book->descuento% OFF</span></li> 
+
                             @endif
                         </ul>	
                     </div> 
@@ -67,14 +60,10 @@
                     @else
                     <form action="{{route('isert_car_phat')}}" method="post">
                         {{ csrf_field() }}
-                        @if($book->status == 3)
-                        <input type="hidden" name="pay" value="{{$book->coste - ($book->coste * 10) /100}}">
-                        @elseif($book->status == 4)
-                        <input type="hidden" name="pay" value=" {{$book->coste - ($book->coste * 20) /100}}">
-                        @elseif($book->status == 5)
-                        <input type="hidden" name="pay" value="{{$book->coste - ($book->coste * 30) /100}}">
-                        @else
+                        @if($book->descuento == 0)
                         <input type="hidden" name="pay" value=" {{$book->coste}}">
+                        @else
+                        <input type="hidden" name="pay" value="{{$book->coste - ($book->coste * $book->descuento) /100}}">
                         @endif
                         <input type="hidden" name="book" value="{{$book->id}}">
                         <input type="hidden" name="go" value="1">
@@ -83,14 +72,10 @@
                     </form>
                     <form action="{{route('isert_car_phat')}}" method="post">
                         {{ csrf_field() }}
-                        @if($book->status == 3)
-                        <input type="hidden" name="pay" value="{{$book->coste - ($book->coste * 10) /100}}">
-                        @elseif($book->status == 4)
-                        <input type="hidden" name="pay" value=" {{$book->coste - ($book->coste * 20) /100}}">
-                        @elseif($book->status == 5)
-                        <input type="hidden" name="pay" value="{{$book->coste - ($book->coste * 30) /100}}">
-                        @else
+                        @if($book->descuento == 0)
                         <input type="hidden" name="pay" value=" {{$book->coste}}">
+                        @else
+                        <input type="hidden" name="pay" value="{{$book->coste - ($book->coste * $book->descuento) /100}}">
                         @endif
                         <input type="hidden" name="book" value="{{$book->id}}">
                         <input type="hidden" name="go" value="2">
@@ -127,16 +112,7 @@
                 @foreach($relationBook as $relation)
                 <div class="item">
                     <div class="glry-w3agile-grids agileits">
-                        @if($relation->status == 3)
-                        <div class="new-tag"><h6>10%<br>Off</h6></div>
-
-                        @elseif($relation->status == 4)
-                        <div class="new-tag"><h6>20%<br>Off</h6></div>
-                        @elseif($relation->status == 5)
-                        <div class="new-tag"><h6>30%<br>Off</h6></div>
-
-                        @endif
-
+                        <div class="new-tag"><h6>{{ $relation->descuento}} %<br>Off</h6></div>
                         <a href="{{ url('/detail_book',$relation->id) }}">
                             @if($relation->cover_page == "images/m3.png" ||  $relation->cover_page == "images/m1.png" )
                             <img src="{{asset($relation->cover_page)}}" alt="img">

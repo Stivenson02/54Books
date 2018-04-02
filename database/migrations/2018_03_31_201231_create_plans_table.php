@@ -17,6 +17,7 @@ class CreatePlansTable extends Migration {
             $table->string('name');
             $table->string('coste');
             $table->integer('status')->default(0);
+            $table->integer('nbook')->default(0);
             $table->timestamps();
         });
     }

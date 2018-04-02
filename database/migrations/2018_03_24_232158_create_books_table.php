@@ -21,6 +21,7 @@ class CreateBooksTable extends Migration {
             $table->string('cover_page');
             $table->string('coste');
             $table->string('code');
+            $table->integer('descuento')->default(0);
             $table->integer('user_id')->unsigned()->nullable(); //Publicante
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('one_subtype_id')->unsigned()->nullable();

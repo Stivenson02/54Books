@@ -95,6 +95,11 @@ Route::get('plans', [
   'uses' => 'UserController@plans',
   'as' => 'plans_phat'
 ]);
+Route::get('prueba_ya', [
+  'uses' => 'UserController@pruebaYA',
+  'as' => 'prueba_ya_phat'
+]);
+
 Route::get('pay_plan/{id}', [
   'uses' => 'UserController@payPlan',
   'as' => 'pay_plan_phat'
@@ -103,6 +108,20 @@ Route::get('pay_plan/{id}', [
 Route::get('book_feature', [
   'uses' => 'UserController@featureBook',
   'as' => 'book_feature_phat'
+]);
+Route::get('book_publis', [
+  'uses' => 'UserController@publisBook',
+  'as' => 'book_publis_phat'
+]);
+
+//PUBLICAR
+Route::get('show_book_public', [
+  'uses' => 'PubliController@showBooks',
+  'as' => 'show_book_public_phat'
+]);
+Route::get('view_public', [
+  'uses' => 'PubliController@index',
+  'as' => 'view_public_phat'
 ]);
 //PAYU SIMULATE
 Route::post('simulate_plan_payu', [

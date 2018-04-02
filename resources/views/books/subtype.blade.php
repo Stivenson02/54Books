@@ -24,28 +24,15 @@
                 @if($category->id == $detailbook->one_subtype_id || $category->id == $detailbook->two_subtype_id )
                 <div class="col-md-4 product-grids"> 
                     <div class="agile-products">
-                        @if($detailbook->status == 3)
-                        <div class="new-tag"><h6>10%<br>Off</h6></div>
 
-                        @elseif($detailbook->status == 4)
-                        <div class="new-tag"><h6>20%<br>Off</h6></div>
-                        @elseif($detailbook->status == 5)
-                        <div class="new-tag"><h6>30%<br>Off</h6></div>
-
-                        @endif
+                        <div class="new-tag"><h6>{{$detailbook->descuento }}%<br>Off</h6></div>
                         <a href="{{ url('/detail_book',$detailbook->id) }}"><img src="{{asset($detailbook->cover_page)}}" class="img-responsive" alt="img"></a>
                         <div class="agile-product-text">              
                             <h5><a href="single.html">{{$detailbook->name}}</a></h5> 
-                            @if($detailbook->status == 3)
-                            <h6><del>{{number_format ($detailbook->coste)}}</del> {{number_format ($detailbook->coste - ($detailbook->coste * 10) /100)}}</h6> 
-                            @elseif($detailbook->status == 4)
-                            <h6><del>{{number_format ($detailbook->coste)}}</del> {{number_format ($detailbook->coste - ($detailbook->coste * 20) /100)}}</h6> 
-
-                            @elseif($detailbook->status == 5)
-                            <h6><del>{{number_format ($detailbook->coste)}}</del> {{number_format ($detailbook->coste - ($detailbook->coste * 30) /100)}}</h6> 
-                            @else
+                            @if($detailbook->descuento == 0)
                             <h6>{{number_format ($detailbook->coste - ($detailbook->coste * 1) /100)}}</h6> 
-
+                            @else
+                            <h6><del>{{number_format ($detailbook->coste)}}</del> {{number_format ($detailbook->coste - ($detailbook->coste * $detailbook->descuento) /100)}}</h6> 
                             @endif
                         </div>
                     </div> 
@@ -57,7 +44,7 @@
 
                 <div class="clearfix"> </div>
             </div>
-        
+
         </div>
         <div class="col-md-3 rsidebar">
             <div class="rsidebar-top">
@@ -108,16 +95,7 @@
                 @foreach($relationBook as $relation)
                 <div class="item">
                     <div class="glry-w3agile-grids agileits">
-                        @if($relation->status == 3)
-                        <div class="new-tag"><h6>10%<br>Off</h6></div>
-
-                        @elseif($relation->status == 4)
-                        <div class="new-tag"><h6>20%<br>Off</h6></div>
-                        @elseif($relation->status == 5)
-                        <div class="new-tag"><h6>30%<br>Off</h6></div>
-
-                        @endif
-
+                        <div class="new-tag"><h6>{{ $relation->descuento}} %<br>Off</h6></div>
                         <a href="{{ url('/detail_book',$relation->id) }}">
                             @if($relation->cover_page == "images/m3.png" ||  $relation->cover_page == "images/m1.png" )
                             <img src="{{asset($relation->cover_page)}}" alt="img">
@@ -129,7 +107,6 @@
                             <h4><a href="{{ url('/detail_book',$relation->id) }}">{{$relation->name}}</a></h4>
                             <p>{{$relation->description}}</p>
                             <h6><del>{{number_format ($relation->coste)}}</del></h6> 
-
                             @if($relation->status == 3)
                             <h4> {{number_format ($relation->coste - ($relation->coste * 10) /100)}}</h4> 
                             @elseif($relation->status == 4)
@@ -138,7 +115,6 @@
                             <h4> {{number_format ($relation->coste - ($relation->coste * 30) /100)}}</h4> 
                             @else
                             <h4>{{number_format ($relation->coste - ($relation->coste * 1) /100)}}</h4> 
-
                             @endif
 
                         </div>        

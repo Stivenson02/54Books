@@ -44,6 +44,10 @@ Route::post('filter_subtipe', [
   'uses' => 'BooksController@filterSubtipe',
   'as' => 'filter_subtipe_phat'
 ]);
+Route::post('isert_book', [
+  'uses' => 'BooksController@create',
+  'as' => 'isert_book_phat'
+]);
 //compra
 Route::post('isert_car', [
   'uses' => 'FeatureController@insertCar',

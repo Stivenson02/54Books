@@ -24,7 +24,7 @@ $Type = Type::all();
             </div> <!-- .cd-dropdown-wrapper -->	 
         </div>
         <div class="move-text">
-            <div class="marquee"><a href="offers.html"> New collections are available here...... <span>Get extra 10% off on everything | no extra taxes </span> <span> Try shipping pass free for 15 days with unlimited</span></a></div>
+            <div class="marquee"><a href="#"> Busca tus libros...... <span>Actualiza tus planes </span> <span> Agrega al carrito de compras</span></a></div>
             <script type="text/javascript" src="js/jquery.marquee.min.js"></script>
             <script>
 $('.marquee').marquee({pauseOnHover: true});

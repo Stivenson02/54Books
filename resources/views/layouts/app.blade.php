@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        <title>Smart Bazaar an E-commerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+        <title>Book Store</title>
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -119,8 +119,6 @@ jQuery(document).ready(function ($) {
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
-
-
                                 <div class="col-md-offset-2 col-md-8">
                                     <input  id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
@@ -172,7 +170,7 @@ jQuery(document).ready(function ($) {
             @if (!Auth::guest())
             <div class="w3ls-header"><!--header-one--> 
                 <div class="w3ls-header-left">
-                    <p><a href="#">UPTO $50 OFF ON LAPTOPS | USE COUPON CODE LAPPY </a></p>
+                    <p><a href="#">Bienvenido</a></p>
                 </div>
                 <div class="w3ls-header-right">
                     <ul>
@@ -181,7 +179,7 @@ jQuery(document).ready(function ($) {
 
                             <a style="color: #FFF"  href="{{ url('/logout') }}"
                                onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
+                                       document.getElementById('logout-form').submit();">
                                 <i class="fa fa-power-off" aria-hidden="true"></i> Salir
                             </a>
 
@@ -198,17 +196,10 @@ jQuery(document).ready(function ($) {
             <div class="header-two"><!-- header-two -->
                 <div class="container">
                     <div class="header-logo">
-                        <h1><a href="{{url('/')}}"><span>S</span>mart <i>Bazaar</i></a></h1>
-                        <h6>Your stores. Your place.</h6> 
+                        <h1><a href="{{url('/')}}"><span>B</span>ook <i>Store</i></a></h1>
+                        <h6>Compra y Vende</h6> 
                     </div>	
-                    <div class="header-search">
-                        <form action="#" method="post">
-                            <input type="search" name="Search" placeholder="Search for a Product..." required="">
-                            <button type="submit" class="btn btn-default" aria-label="Left Align" >
-                                <i class="fa fa-search" aria-hidden="true"> </i>
-                            </button>
-                        </form>
-                    </div>
+
                     <div class="header-cart"> 
                         <div class="my-account">
                             @if (Auth::guest())
@@ -242,8 +233,8 @@ jQuery(document).ready(function ($) {
                 <div class="footer-info w3-agileits-info">
                     <div class="col-md-4 address-left agileinfo">
                         <div class="footer-logo header-logo">
-                            <h2><a href="{{url('/')}}"><span>S</span>mart <i>Bazaar</i></a></h2>
-                            <h6>Your stores. Your place.</h6>
+                            <h2><a href="{{url('/')}}"><span>B</span>ook <i>Store</i></a></h2>
+                            <h6>Compra y Vende.</h6>
                         </div>
                         <ul>
                             <li><i class="fa fa-map-marker"></i> 123 San Sebastian, New York City USA.</li>
@@ -253,33 +244,16 @@ jQuery(document).ready(function ($) {
                         </ul> 
                     </div>
                     <div class="col-md-8 address-right">
+
+
                         <div class="col-md-4 footer-grids">
-                            <h3>Company</h3>
+                            <h3>Pruebas y Validacion</h3>
                             <ul>
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="marketplace.html">Marketplace</a></li>  
-                                <li><a href="values.html">Core Values</a></li>  
-                                <li><a href="privacy.html">Privacy Policy</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4 footer-grids">
-                            <h3>Services</h3>
-                            <ul>
-                                <li><a href="contact.html">Contact Us</a></li>
-                                <li><a href="login.html">Returns</a></li> 
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="sitemap.html">Site Map</a></li>
-                                <li><a href="login.html">Order Status</a></li>
-                            </ul> 
-                        </div>
-                        <div class="col-md-4 footer-grids">
-                            <h3>Payment Methods</h3>
-                            <ul>
-                                <li><i class="fa fa-laptop" aria-hidden="true"></i> Net Banking</li>
-                                <li><i class="fa fa-money" aria-hidden="true"></i> Cash On Delivery</li>
-                                <li><i class="fa fa-pie-chart" aria-hidden="true"></i>EMI Conversion</li>
-                                <li><i class="fa fa-gift" aria-hidden="true"></i> E-Gift Voucher</li>
-                                <li><i class="fa fa-credit-card" aria-hidden="true"></i> Debit/Credit Card</li>
+                                <li><i class="fa fa-user" aria-hidden="true"></i> Cesar Medina</li>
+                                <li><i class="fa fa-laptop" aria-hidden="true"></i> Stiven Maldonado</li>
+                                <li><i class="fa fa-pie-chart" aria-hidden="true"></i>Lis</li>
+                                <li><i class="fa fa-pie-chart" aria-hidden="true"></i> Jes</li>
+
                             </ul>  
                         </div>
                         <div class="clearfix"></div>
@@ -291,23 +265,23 @@ jQuery(document).ready(function ($) {
         <!-- //footer -->		
         <div class="copy-right"> 
             <div class="container">
-                <p>© 2016 Smart bazaar . All rights reserved | Design by <a href="http://w3layouts.com"> W3layouts.</a></p>
+                <p>© 2018 Book Store . All rights reserved | Design by <a href="#"> BookStore</a></p>
             </div>
         </div> 
         <!-- cart-js -->
         <script src="{{ asset('js/minicart.js')}}"></script>
         <script>
-                                                w3ls.render();
-                                                w3ls.cart.on('w3sb_checkout', function (evt) {
-                                                    var items, len, i;
-                                                    if (this.subtotal() > 0) {
-                                                        items = this.items();
-                                                        for (i = 0, len = items.length; i < len; i++) {
-                                                            items[i].set('shipping', 0);
-                                                            items[i].set('shipping2', 0);
-                                                        }
-                                                    }
-                                                });
+                                   w3ls.render();
+                                   w3ls.cart.on('w3sb_checkout', function (evt) {
+                                       var items, len, i;
+                                       if (this.subtotal() > 0) {
+                                           items = this.items();
+                                           for (i = 0, len = items.length; i < len; i++) {
+                                               items[i].set('shipping', 0);
+                                               items[i].set('shipping2', 0);
+                                           }
+                                       }
+                                   });
         </script>  
         <!-- //cart-js -->	
         <!-- countdown.js -->	
@@ -315,57 +289,57 @@ jQuery(document).ready(function ($) {
         <script src="{{ asset('js/jquery.throttle.js')}}"></script>
         <script src="{{ asset('js/jquery.classycountdown.js')}}"></script>
         <script>
-                                                $(document).ready(function () {
-                                                    $('#countdown1').ClassyCountdown({
-                                                        end: '1388268325',
-                                                        now: '1387999995',
-                                                        labels: true,
-                                                        style: {
-                                                            element: "",
-                                                            textResponsive: .5,
-                                                            days: {
-                                                                gauge: {
-                                                                    thickness: .10,
-                                                                    bgColor: "rgba(0,0,0,0)",
-                                                                    fgColor: "#1abc9c",
-                                                                    lineCap: 'round'
-                                                                },
-                                                                textCSS: 'font-weight:300; color:#fff;'
-                                                            },
-                                                            hours: {
-                                                                gauge: {
-                                                                    thickness: .10,
-                                                                    bgColor: "rgba(0,0,0,0)",
-                                                                    fgColor: "#05BEF6",
-                                                                    lineCap: 'round'
-                                                                },
-                                                                textCSS: ' font-weight:300; color:#fff;'
-                                                            },
-                                                            minutes: {
-                                                                gauge: {
-                                                                    thickness: .10,
-                                                                    bgColor: "rgba(0,0,0,0)",
-                                                                    fgColor: "#8e44ad",
-                                                                    lineCap: 'round'
-                                                                },
-                                                                textCSS: ' font-weight:300; color:#fff;'
-                                                            },
-                                                            seconds: {
-                                                                gauge: {
-                                                                    thickness: .10,
-                                                                    bgColor: "rgba(0,0,0,0)",
-                                                                    fgColor: "#f39c12",
-                                                                    lineCap: 'round'
-                                                                },
-                                                                textCSS: ' font-weight:300; color:#fff;'
-                                                            }
+                                   $(document).ready(function () {
+                                       $('#countdown1').ClassyCountdown({
+                                           end: '1388268325',
+                                           now: '1387999995',
+                                           labels: true,
+                                           style: {
+                                               element: "",
+                                               textResponsive: .5,
+                                               days: {
+                                                   gauge: {
+                                                       thickness: .10,
+                                                       bgColor: "rgba(0,0,0,0)",
+                                                       fgColor: "#1abc9c",
+                                                       lineCap: 'round'
+                                                   },
+                                                   textCSS: 'font-weight:300; color:#fff;'
+                                               },
+                                               hours: {
+                                                   gauge: {
+                                                       thickness: .10,
+                                                       bgColor: "rgba(0,0,0,0)",
+                                                       fgColor: "#05BEF6",
+                                                       lineCap: 'round'
+                                                   },
+                                                   textCSS: ' font-weight:300; color:#fff;'
+                                               },
+                                               minutes: {
+                                                   gauge: {
+                                                       thickness: .10,
+                                                       bgColor: "rgba(0,0,0,0)",
+                                                       fgColor: "#8e44ad",
+                                                       lineCap: 'round'
+                                                   },
+                                                   textCSS: ' font-weight:300; color:#fff;'
+                                               },
+                                               seconds: {
+                                                   gauge: {
+                                                       thickness: .10,
+                                                       bgColor: "rgba(0,0,0,0)",
+                                                       fgColor: "#f39c12",
+                                                       lineCap: 'round'
+                                                   },
+                                                   textCSS: ' font-weight:300; color:#fff;'
+                                               }
 
-                                                        },
-                                                        onEndCallback: function () {
-                                                            console.log("Time out!");
-                                                        }
-                                                    });
-                                                });
+                                           },
+                                           onEndCallback: function () {
+                                               console.log("Time out!");
+                                           }
+                                       });
+                                   });
         </script>
         <!-- //countdown.js -->
         <!-- menu js aim -->

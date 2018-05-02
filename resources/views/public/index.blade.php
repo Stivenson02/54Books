@@ -9,7 +9,7 @@
 
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="#">
+                    <form class="form-horizontal" method="POST" action="{{route('isert_book_phat')}}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <div class="form-group">
@@ -52,9 +52,38 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="catprins" class="col-md-4 control-label">Categoria Principal</label>
+                            <div class="col-md-6">
+                                <select   class="form-control" name="catprins"  required autofocus>
+                                    @foreach($subtype as $sub)
+                                    <option value="{{$sub->id}}">{{$sub->name}}</option>
+                                    @endforeach()
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="catsecond" class="col-md-4 control-label">Categoria Secundaria</label>
+                            <div class="col-md-6">
+                                <select   class="form-control" name="catsecond"  required autofocus>
+                                    @foreach($subtype as $sub)
+                                    <option value="{{$sub->id}}">{{$sub->name}}</option>
+                                    @endforeach()
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="catsecond" class="col-md-4 control-label">Descripcion</label>
+                            <div class="col-md-6">
+                                <textarea name="description">
+                                    
+                                </textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="cover_page" class="col-md-4 control-label">Foto portada</label>
                             <div class="col-md-6">
-                                <input  type="file" class="form-control" name="cover_page"  required autofocus>
+
+                                <input id="image"  type="file" class="form-control" name="image"  required autofocus>
                             </div>
                         </div>
                         <div class="form-group">

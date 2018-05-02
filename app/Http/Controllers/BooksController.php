@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use App\Type;
 use App\Subtype;
 use App\Book;
 use App\User;
+use App\Pay;
+use App\UserBook;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class BooksController extends Controller {
 
@@ -47,6 +52,41 @@ class BooksController extends Controller {
         $book = Book::find($id);
         $perfil = Storage::disk('local')->get('public/portada/' . $book->cover_page);
         return response($perfil, 200);
+    }
+
+    public function create(Request $dates) {
+        $plan = Pay::where('user_id', Auth::User()->id)->first();
+        $subtype = Subtype::find($dates->catprins);
+
+        $newbook = new Book();
+        $newbook->name = $dates->name;
+        $newbook->autor = $dates->autor;
+        $newbook->editorial = $dates->editorial;
+        $newbook->coste = $dates->coste;
+        $newbook->code = time();
+        $newbook->user_id = Auth::User()->id;
+        $newbook->descuento = $dates->descuento;
+        $newbook->one_subtype_id = $dates->catprins;
+        $newbook->two_subtype_id = $dates->catsecond;
+        $newbook->type_id = $subtype->type_id;
+        $newbook->status = $plan->plan->status;
+        $newbook->description = $dates->description;
+
+        $file = $dates->file('image');
+        $nombre = time() . '_' . $file->getClientOriginalName();
+        $img1 = Image::make($file)->resize(250, 300)->stream();
+
+        Storage::disk('local')->put('public/portada/' . $nombre, $img1);
+
+        $newbook->cover_page = $nombre;
+
+        if ($newbook->save()) {
+            $registro = new UserBook();
+            $registro->user_id = Auth::User()->id;
+            $registro->book_id = $newbook->id;
+            $registro->save();
+        }
+        return redirect()->route('book_publis_phat');
     }
 
 }

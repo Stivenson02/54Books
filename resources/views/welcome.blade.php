@@ -6,38 +6,12 @@
         <!-- //header -->	
         @include('partial.banner')
         @include('partial.intro')
-        <!-- add-products -->
-        <div class="add-products"> 
-            <div class="container">  
-                <div class="add-products-row">
-                    <div class="w3ls-add-grids">
-                        <a href="products1.html"> 
-                            <h4>TOP 10 TRENDS FOR YOU FLAT <span>20%</span> OFF</h4>
-                            <h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-                        </a>
-                    </div>
-                    <div class="w3ls-add-grids w3ls-add-grids-mdl">
-                        <a href="products1.html"> 
-                            <h4>SUNDAY SPECIAL DISCOUNT FLAT <span>40%</span> OFF</h4>
-                            <h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-                        </a>
-                    </div>
-                    <div class="w3ls-add-grids w3ls-add-grids-mdl1">
-                        <a href="products.html"> 
-                            <h4>LATEST DESIGNS FOR YOU <span> Hurry !</span></h4>
-                            <h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-                        </a>
-                    </div>
-                    <div class="clerfix"> </div>
-                </div>  	
-            </div>  	
-        </div>
-        <!-- //add-products -->
+     
         <!-- coming soon -->
         <div class="soon">
             <div class="container">
-                <h3>Mega Deal Of the Week</h3>
-                <h4>Coming Soon Don't Miss Out</h4>  
+                <h3>Mega Descuentos</h3>
+                
                 <div id="countdown1" class="ClassyCountdownDemo"></div>
             </div> 
         </div>
@@ -45,7 +19,7 @@
         <!-- deals -->
         <div class="deals"> 
             <div class="container"> 
-                <h3 class="w3ls-title">DEALS OF THE DAY </h3>
+           
                 <div class="deals-row">
                     <div class="col-md-3 focus-grid"> 
                         <a href="products.html" class="wthree-btn"> 
@@ -145,8 +119,8 @@
                             <i class="fa fa-truck" aria-hidden="true"></i>
                         </div> 
                         <div class="ftr-top-right">
-                            <h4>FREE DELIVERY</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus justo ac </p>
+                            <h4>Vende Libre</h4>
+                            <p>Hacemos el flujo de venta y destacamos tu libro </p>
                         </div> 
                         <div class="clearfix"> </div>
                     </div> 
@@ -155,8 +129,8 @@
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </div> 
                         <div class="ftr-top-right">
-                            <h4>CUSTOMER CARE</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus justo ac </p>
+                            <h4>Comparte</h4>
+                            <p>Tienes un libro  que no usas </p>
                         </div> 
                         <div class="clearfix"> </div>
                     </div>
@@ -165,8 +139,8 @@
                             <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
                         </div> 
                         <div class="ftr-top-right">
-                            <h4>GOOD QUALITY</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus justo ac </p>
+                            <h4>Inicia</h4>
+                            <p>Publica un libro GRATIS  </p>
                         </div>
                         <div class="clearfix"> </div>
                     </div> 
@@ -175,35 +149,5 @@
             </div>
         </div>
         <!-- //footer-top --> 
-        <!-- subscribe -->
-        <div class="subscribe"> 
-            <div class="container">
-                <div class="col-md-6 social-icons w3-agile-icons">
-                    <h4>Keep in touch</h4>  
-                    <ul>
-                        <li><a href="#" class="fa fa-facebook icon facebook"> </a></li>
-                        <li><a href="#" class="fa fa-twitter icon twitter"> </a></li>
-                        <li><a href="#" class="fa fa-google-plus icon googleplus"> </a></li>
-                        <li><a href="#" class="fa fa-dribbble icon dribbble"> </a></li>
-                        <li><a href="#" class="fa fa-rss icon rss"> </a></li> 
-                    </ul> 
-                    <ul class="apps"> 
-                        <li><h4>Download Our app : </h4> </li>
-                        <li><a href="#" class="fa fa-apple"></a></li>
-                        <li><a href="#" class="fa fa-windows"></a></li>
-                        <li><a href="#" class="fa fa-android"></a></li>
-                    </ul> 
-                </div> 
-                <div class="col-md-6 subscribe-right">
-                    <h4>Sign up for email and get 25%off!</h4>  
-                    <form action="#" method="post"> 
-                        <input type="text" name="email" placeholder="Enter your Email..." required="">
-                        <input type="submit" value="Subscribe">
-                    </form>
-                    <div class="clearfix"> </div> 
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
-        <!-- //subscribe --> 
+
 @endsection

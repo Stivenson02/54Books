@@ -26,7 +26,14 @@
                     <div class="agile-products">
 
                         <div class="new-tag"><h6>{{$detailbook->descuento }}%<br>Off</h6></div>
-                        <a href="{{ url('/detail_book',$detailbook->id) }}"><img src="{{asset($detailbook->cover_page)}}" class="img-responsive" alt="img"></a>
+                        <a href="{{ url('/detail_book',$detailbook->id) }}">
+                            @if($detailbook->cover_page == "images/m3.png" ||  $detailbook->cover_page == "images/m1.png" )
+                            <img src="{{asset($detailbook->cover_page)}}" class="img-responsive" alt="img">
+                            @else
+                            <div class="thumb-image detail_images"> <img src="{{ route('imagen_book_phat', $detailbook->id) }}" data-imagezoom="true" class="img-responsive" alt=""> </div>
+                            @endif
+
+                        </a>
                         <div class="agile-product-text">              
                             <h5><a href="single.html">{{$detailbook->name}}</a></h5> 
                             @if($detailbook->descuento == 0)

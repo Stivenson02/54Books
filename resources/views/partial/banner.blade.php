@@ -6,22 +6,22 @@
                     <div class="item active"><!-- First-Slide -->
                         <img src="images/5.jpg" alt="" class="img-responsive" />
                         <div class="carousel-caption kb_caption kb_caption_right">
-                            <h3 data-animation="animated flipInX">Flat <span>50%</span> Discount</h3>
-                            <h4 data-animation="animated flipInX">Hot Offer Today Only</h4>
+                            <h3 data-animation="animated flipInX">Promociones <span>30%</span> de descuento</h3>
+                            <h4 data-animation="animated flipInX">Busca promociones</h4>
                         </div>
                     </div>  
                     <div class="item"> <!-- Second-Slide -->
                         <img src="images/8.jpg" alt="" class="img-responsive" />
                         <div class="carousel-caption kb_caption kb_caption_right">
-                            <h3 data-animation="animated fadeInDown">Our Latest Fashion Editorials</h3>
-                            <h4 data-animation="animated fadeInUp">cupidatat non proident</h4>
+                            <h3 data-animation="animated fadeInDown">Plan gratis </h3>
+                            <h4 data-animation="animated fadeInUp">para que publiques</h4>
                         </div>
                     </div> 
                     <div class="item"><!-- Third-Slide -->
                         <img src="images/3.jpg" alt="" class="img-responsive"/>
                         <div class="carousel-caption kb_caption kb_caption_center">
-                            <h3 data-animation="animated fadeInLeft">End Of Season Sale</h3>
-                            <h4 data-animation="animated flipInX">cupidatat non proident</h4>
+                            <h3 data-animation="animated fadeInLeft">Suscribete GRATIS</h3>
+                            <h4 data-animation="animated flipInX">Conoce nuestros planes</h4>
                         </div>
                     </div> 
                 </div> 
